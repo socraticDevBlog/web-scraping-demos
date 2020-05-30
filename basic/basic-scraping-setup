@@ -1,0 +1,51 @@
+# Basic scraping using Jupyter Lab
+
+- setup your environment
+
+- activate virtual environment by issuing this command in your terminal : ``$ pipenv shell``
+
+- open a jupyter lab browser tab by issuing this command
+  in your terminal : ``$ jupyter lab``
+  it will open a Jupyter Lab notebook in a new browser tab
+
+- copy/paste the code below and run code (press play)
+
+- it will download Tesla Wikipedia page in html format in current directory
+
+## (if you wish to start from scratch) setup your environment by issuing these commands, one by one, in the terminal
+
+- pyenv install 3.7.4
+- pyenv local 3.7.4
+
+- pipenv --python 3.7.4
+- pipenv install requests
+- pipenv install beautifulsoup4
+- pipenv install pandas
+
+- pipenv install jupyterlab
+
+###
+
+### check installation by running these commands (optional)
+
+!pyenv local
+!python -V
+!pip list
+
+###
+
+### scraping code code ###
+
+``import requests
+import BeautifulSoup4
+import pandas as pd
+
+start_url = 'https://en.wikipedia.org/wiki/Tesla,_Inc.'
+
+downloaded_html = requests.get(start_url)
+
+soup = bs4.BeautifulSoup4(downloaded_html.text)
+
+with open('downloaded.html', 'w') as file:
+	file.write(soup.prettify())``
+
